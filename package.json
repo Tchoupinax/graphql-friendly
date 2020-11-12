@@ -1,0 +1,57 @@
+{
+  "name": "graphql-friendly",
+  "version": "0.0.1",
+  "description": "An easy and friendly graphql client, alternative to apollo-client",
+  "author": "Tchoupinax <corentinfiloche@hotmail.fr> (https://corentinfiloche.xyz)",
+  "keywords": [
+    "graphql-friendly",
+    "graphql",
+    "apollo",
+    "client",
+    "vue",
+    "vue3"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tchoupinax/graphql-friendly"
+  },
+  "bugs": {
+    "url": "https://github.com/Tchoupinax/graphql-friendly/issues"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "klap build --no-minify",
+    "start": "klap start --no-minify",
+    "watch": "klap watch --no-minify"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "graphql": "^15.4.0",
+    "graphql-subscriptions-client": "^0.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.7",
+    "klap": "^5.2.0",
+    "tsup": "^3.8.0",
+    "typescript": "^4.0.5"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "browser": "./dist/graphql-friendly.js",
+      "import": "./dist/graphql-friendly.js",
+      "require": "./dist/graphql-friendly.cjs.js",
+      "umd": "./dist/graphql-friendly.umd.js"
+    },
+    "./": "./",
+    "./package.json": "./package.json"
+  },
+  "source": "src/index.ts",
+  "main": "dist/graphql-friendly.cjs.js",
+  "unpkg": "dist/graphql-friendly.js",
+  "module": "dist/graphql-friendly.js",
+  "browser": "dist/graphql-friendly.umd.js",
+  "types": "dist/graphql-friendly.d.ts"
+}
