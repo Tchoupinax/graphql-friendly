@@ -5,4 +5,3 @@ module.exports = {
   GraphqlClient,
   install: VuePlugin.install,
 }
-
