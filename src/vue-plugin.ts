@@ -5,11 +5,12 @@ import client from './client';
 
 export interface IOptions {
   url: string
+  headers: any
 }
 
 export default {
   install: (app: any, options: IOptions) => {
-    app.config.globalProperties.$graphqlClient = new client(options.url);
+    app.config.globalProperties.$graphqlClient = new client(options.url, options.headers);
     app.provide('$graphqlClient', options);
   },
 };

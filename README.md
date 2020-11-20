@@ -18,6 +18,10 @@ Morever, `apollo-client` has been originally made for `react` and I love `vue`. 
   
 ## Get started
 
+```
+npm install graphql-friendly
+```
+
 ### Node.js && Browser
 
 To declare your client, your just need the following line
