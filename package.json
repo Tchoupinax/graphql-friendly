@@ -20,6 +20,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "test": "echo 0",
     "prepublish": "npm run build",
     "start": "klap start --no-minify",
     "watch": "klap watch --no-minify",
