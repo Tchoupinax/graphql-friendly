@@ -28,9 +28,33 @@ export default class GraphqlClient {
     });
   }
 
-  query({ query, variables }): AxiosPromise<any>  {
-    let queryString = query;
+  query(args): AxiosPromise<any>  {
+    if (Array.isArray(args)) {
+      let finalQuery = '';
+      for (let i = 0; i < args.length; i++) {
+        if (!args[i].query) {
+          throw new Error(`Query at index ${i} is incorrect`);
+        }
 
+        if (i === 0) {
+          finalQuery += print(args[i].query).slice(0, -3);
+        } else {
+          finalQuery +=  print(args[i].query).slice(1);
+        }
+      }
+
+      return axios({
+        url: this.url,
+        method: 'POST',
+        data: { query: finalQuery },
+        headers: this.headers
+      })
+      .then(({ data }) => data);
+    }
+
+    const { query, variables } = args;
+
+    let queryString = query;
     if (typeof query === 'object' && query.kind === 'Document') {
       queryString = print(query)
     }
