@@ -1,6 +1,6 @@
 {
   "name": "graphql-friendly",
-  "version": "0.0.3-1",
+  "version": "0.0.3-6",
   "description": "An easy and friendly graphql client, alternative to apollo-client",
   "author": "Tchoupinax <corentinfiloche@hotmail.fr> (https://corentinfiloche.xyz)",
   "keywords": [
