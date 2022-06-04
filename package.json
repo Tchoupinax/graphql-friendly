@@ -29,16 +29,16 @@
     "release": "np"
   },
   "dependencies": {
-    "axios": "^0.21.0",
-    "graphql": "^15.4.0",
-    "graphql-subscriptions-client": "^0.15.0"
+    "axios": "^0.27.2",
+    "graphql": "^16.5.0",
+    "graphql-subscriptions-client": "^0.16.4"
   },
   "devDependencies": {
-    "@types/node": "^14.14.9",
-    "klap": "^5.2.2",
-    "np": "^7.0.0",
-    "tsup": "^3.8.0",
-    "typescript": "^4.1.2"
+    "@types/node": "^17.0.39",
+    "klap": "^7.0.10",
+    "np": "^7.6.1",
+    "tsup": "^6.0.1",
+    "typescript": "^4.7.3"
   },
   "files": [
     "dist"
