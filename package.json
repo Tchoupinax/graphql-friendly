@@ -24,7 +24,7 @@
     "start": "klap start",
     "watch": "klap watch",
     "build": "klap build",
-    "publish": "np --no-release-draft --any-branch",
+    "publish2": "np --no-release-draft --any-branch",
     "release": "np"
   },
   "dependencies": {
