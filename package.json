@@ -21,7 +21,6 @@
   "license": "MIT",
   "scripts": {
     "test": "echo 0",
-    "prepublish": "npm run build",
     "start": "klap start",
     "watch": "klap watch",
     "build": "klap build",
