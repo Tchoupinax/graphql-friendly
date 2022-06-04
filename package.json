@@ -43,6 +43,7 @@
   "files": [
     "dist"
   ],
+  "source": "src/index.ts",
   "main": "dist/graphql-friendly.esm.js",
   "types": "dist/graphql-friendly.d.ts"
 }
