@@ -22,9 +22,9 @@
   "scripts": {
     "test": "echo 0",
     "prepublish": "npm run build",
-    "start": "klap start --no-minify",
-    "watch": "klap watch --no-minify",
-    "build": "klap build --no-minify",
+    "start": "klap start",
+    "watch": "klap watch",
+    "build": "klap build",
     "publish": "np --no-release-draft --any-branch",
     "release": "np"
   },
@@ -43,20 +43,6 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "browser": "./dist/graphql-friendly.js",
-      "import": "./dist/graphql-friendly.js",
-      "require": "./dist/graphql-friendly.cjs.js",
-      "umd": "./dist/graphql-friendly.umd.js"
-    },
-    "./": "./",
-    "./package.json": "./package.json"
-  },
-  "source": "src/index.ts",
-  "main": "dist/graphql-friendly.cjs.js",
-  "unpkg": "dist/graphql-friendly.js",
-  "module": "dist/graphql-friendly.js",
-  "browser": "dist/graphql-friendly.umd.js",
+  "main": "dist/graphql-friendly.esm.js",
   "types": "dist/graphql-friendly.d.ts"
 }

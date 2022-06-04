@@ -1,7 +1,7 @@
-import GraphqlClient from './client'
-import VuePlugin from './vue-plugin'
+import GraphqlClient from './client';
+import VuePlugin from './vue-plugin';
 
-module.exports = {
+export default {
   GraphqlClient,
   install: VuePlugin.install,
-}
+};

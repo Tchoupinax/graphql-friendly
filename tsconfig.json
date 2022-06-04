@@ -1,13 +1,14 @@
 {
   "include": ["src"],
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true,
     "allowJs": true,
     "jsx": "preserve",
     "lib": ["dom", "esnext"],
-    "removeComments": true
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "target": "ES2020",
   }
 }
