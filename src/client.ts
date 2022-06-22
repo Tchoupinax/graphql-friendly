@@ -93,6 +93,14 @@ export default class GraphqlClient {
       queryString = print(query);
     }
 
-    return this.subscriptionClient.request({ query: queryString, variables });
+    if (this.subscriptionClient?.request) {
+      return this.subscriptionClient.request({ query: queryString, variables });
+    } else {
+      return new Promise((r) => {
+        setTimeout(() => {
+          r(this.subscribe({ query, variables }));
+        }, 200);
+      })
+    }
   }
 }
