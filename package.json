@@ -21,12 +21,9 @@
   "license": "MIT",
   "scripts": {
     "test": "echo 0",
-    "prepublish": "npm run build",
     "start": "klap start --no-minify",
     "watch": "klap watch --no-minify",
-    "build": "klap build --no-minify",
-    "publish": "np --no-release-draft --any-branch",
-    "release": "np"
+    "build": "klap build --no-minify"
   },
   "dependencies": {
     "axios": "1.6.2",

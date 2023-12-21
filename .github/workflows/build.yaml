@@ -1,4 +1,4 @@
-name: Build
+name: Integrity checks
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - feature/**
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
