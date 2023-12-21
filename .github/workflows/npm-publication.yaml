@@ -1,12 +1,9 @@
 name: Publish package to npm
 
-#on:
-#  release:
-#    types: [published]
 on:
-  push:
-    branches:
-      - feature/**
+  release:
+    types:
+      - published
 
 jobs:
   publish:
