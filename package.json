@@ -1,6 +1,6 @@
 {
   "name": "graphql-friendly",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "An easy and friendly graphql client, alternative to apollo-client",
   "author": "Tchoupinax <corentinfiloche@hotmail.fr> (https://corentinfiloche.xyz)",
   "keywords": [
@@ -28,7 +28,7 @@
   "dependencies": {
     "axios": "1.6.2",
     "graphql": "16.8.1",
-    "graphql-subscriptions-client": "0.16.4"
+    "graphql-ws": "5.14.3"
   },
   "devDependencies": {
     "@types/node": "20.10.5",

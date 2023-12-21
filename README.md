@@ -72,14 +72,11 @@ Graphql allows you to make subscription. To do this, you juste have to call the 
 ```js
 const myObserver = myGraphqlClient.subscribe({ query: 'subscription { users { id } }' })
 
-myObserver.subscribe({
-  next(data) { // When an event is received from the server
-    console.log(data);
-  },
-  error(err) { // When an event occured
-    console.log(err);
-  },  
-});
+for await (const event of myObserver) {
+  console.log(event);
+
+  break; // If you want to cut the subscription
+}
 ```
 
 ### With Vue 3
@@ -117,17 +114,4 @@ After installing the plugin, the client is accessible in your components as `thi
 
 - `query`: string | object - The query can be a graphql string or parsed query with [graphql-tag](https://github.com/apollographql/graphql-tag).
 - `variables`: object - Variables provided to your query
-
-`returns` an observable that you can subscribe
-
-```js
-.subscribe({
-  next(data) { // When an event is received from the server
-    console.log(data);
-  },
-  error(err) { // When an event occured
-    console.log(err);
-  },  
-});
-```
 
