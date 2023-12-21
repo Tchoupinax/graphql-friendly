@@ -1,6 +1,6 @@
 {
   "name": "graphql-friendly",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "An easy and friendly graphql client, alternative to apollo-client",
   "author": "Tchoupinax <corentinfiloche@hotmail.fr> (https://corentinfiloche.xyz)",
   "keywords": [
@@ -41,6 +41,7 @@
     "dist"
   ],
   "source": "src/index.ts",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts"
+  "main": "dist/index.cjs.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.esm.js"
 }
