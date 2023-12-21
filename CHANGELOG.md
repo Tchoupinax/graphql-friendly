@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.7 | 2023-12-21
+
+#### Chores:
+
+- Automatically publish to NPM
+
 ## 0.0.2 | 2020-11-20
 
 #### Features:
