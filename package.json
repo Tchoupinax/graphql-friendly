@@ -1,6 +1,6 @@
 {
   "name": "graphql-friendly",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "An easy and friendly graphql client, alternative to apollo-client",
   "author": "Tchoupinax <corentinfiloche@hotmail.fr> (https://corentinfiloche.xyz)",
   "keywords": [
@@ -40,20 +40,8 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "browser": "./dist/graphql-friendly.js",
-      "import": "./dist/graphql-friendly.js",
-      "require": "./dist/graphql-friendly.cjs.js",
-      "umd": "./dist/graphql-friendly.umd.js"
-    },
-    "./": "./",
-    "./package.json": "./package.json"
-  },
   "source": "src/index.ts",
-  "main": "dist/graphql-friendly.cjs.js",
-  "unpkg": "dist/graphql-friendly.js",
-  "module": "dist/graphql-friendly.js",
-  "browser": "dist/graphql-friendly.umd.js",
-  "types": "dist/graphql-friendly.d.ts"
+  "main": "dist/index.cjs.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.esm.js"
 }
