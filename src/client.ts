@@ -1,10 +1,11 @@
 import axios, { AxiosPromise } from 'axios'
 import { print } from 'graphql/language/printer';
+import { Client, ExecutionResult, createClient } from 'graphql-ws';
 
 export default class GraphqlClient {
   private url: string
   private headers: Record<string, string>;
-  private subscriptionClient: any;
+  private subscriptionClient: Client;
 
   constructor(url: string, headers: Record<string, string>) {
     if (!url) {
@@ -17,22 +18,9 @@ export default class GraphqlClient {
     // NOTE: automatically replace http by ws and https by wss for the subscription query
     let wsUrl = url.replace(/http:\/\//, 'ws://').replace(/https:\/\//, 'wss://')
 
-    try {
-      if (window) {
-        // Lazy load this part if the client supports it
-        import('graphql-subscriptions-client').then(({ SubscriptionClient }) => {
-          this.subscriptionClient = new SubscriptionClient(wsUrl, {
-            reconnect: true,
-            lazy: true, // only connect when there is a query
-            connectionCallback: error => {
-              error && console.error(error)
-            }
-          });
-        })
-      }
-    } catch (err) {
-      this.subscriptionClient = null
-    }
+    this.subscriptionClient = createClient({
+      url: wsUrl,
+    });
   }
 
   async query(args, { headers } = { headers: undefined }): AxiosPromise<any> {
@@ -85,21 +73,13 @@ export default class GraphqlClient {
     return this.query({ query, variables }, opts);
   }
 
-  subscribe({ query, variables }) {
+  subscribe({ query, variables }): AsyncIterableIterator<ExecutionResult<Record<string, unknown>, unknown>> {
     let queryString = query;
 
     if (typeof query === 'object' && query.kind === 'Document') {
       queryString = print(query);
     }
 
-    if (this.subscriptionClient?.request) {
-      return this.subscriptionClient.request({ query: queryString, variables });
-    } else {
-      return new Promise((r) => {
-        setTimeout(() => {
-          r(this.subscribe({ query, variables }));
-        }, 200);
-      })
-    }
+    return this.subscriptionClient.iterate({ query, variables })
   }
 }
