@@ -1,14 +1,13 @@
-
 import axios, { AxiosPromise } from 'axios'
 import { SubscriptionClient } from 'graphql-subscriptions-client';
 import { print } from 'graphql/language/printer';
 
 export default class GraphqlClient {
   private url: string
-  private headers: any;
+  private headers: Record<string, string>;
   private subscriptionClient: any;
 
-  constructor(url: string, headers: any) {
+  constructor(url: string, headers: Record<string, string>) {
     if (!url) {
       throw new Error('[graphql-friendly] - options.url is required');
     }
@@ -28,7 +27,7 @@ export default class GraphqlClient {
     });
   }
 
-  query(args): AxiosPromise<any>  {
+  async query(args): AxiosPromise<any>  {
     if (Array.isArray(args)) {
       let finalQuery = '';
       for (let i = 0; i < args.length; i++) {
