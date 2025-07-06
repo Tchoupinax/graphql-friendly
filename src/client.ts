@@ -1,6 +1,6 @@
 import axios, { AxiosPromise } from 'axios'
 import { print } from 'graphql/language/printer';
-import { Client, ExecutionResult, createClient } from 'graphql-ws';
+import { Client, createClient } from 'graphql-ws';
 
 export default class GraphqlClient {
   private url: string
@@ -20,6 +20,11 @@ export default class GraphqlClient {
 
     this.subscriptionClient = createClient({
       url: wsUrl,
+      connectionParams: {
+        headers: {
+          ...this.headers,
+        }
+      }
     });
   }
 
@@ -73,13 +78,13 @@ export default class GraphqlClient {
     return this.query({ query, variables }, opts);
   }
 
-  subscribe({ query, variables }): AsyncIterableIterator<ExecutionResult<Record<string, unknown>, unknown>> {
+  subscribe({ query, variables }) {
     let queryString = query;
 
     if (typeof query === 'object' && query.kind === 'Document') {
       queryString = print(query);
     }
 
-    return this.subscriptionClient.iterate({ query, variables })
+    return this.subscriptionClient.iterate({ query: queryString, variables })
   }
 }

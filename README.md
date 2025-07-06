@@ -70,7 +70,7 @@ For the moment, `.mutation` is exactly the same as `.query`.
 Graphql allows you to make subscription. To do this, you juste have to call the `subscribe` method and subscribe the answer
 
 ```js
-const myObserver = myGraphqlClient.subscribe({ query: 'subscription { users { id } }' })
+const myObserver = myGraphqlClient.subscribe({ query: 'subscription { users { id } }', variables: {} })
 
 for await (const event of myObserver) {
   console.log(event);
