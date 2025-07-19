@@ -78,13 +78,13 @@ export default class GraphqlClient {
     return this.query({ query, variables }, opts);
   }
 
-  subscribe({ query, variables }) {
+  subscribe<A, B>({ query, variables }) {
     let queryString = query;
 
     if (typeof query === 'object' && query.kind === 'Document') {
       queryString = print(query);
     }
 
-    return this.subscriptionClient.iterate({ query: queryString, variables })
+    return this.subscriptionClient.iterate<A, B>({ query: queryString, variables })
   }
 }
